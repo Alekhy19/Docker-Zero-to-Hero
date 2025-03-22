@@ -12,6 +12,15 @@ pipeline {
                 }
             }
         }
+        stage("Run Docker Image"){
+            steps {
+                script{
+                    sh '''
+                        docker run -d -p 8001:8000 python-web-app:latest
+                    '''
+                }
+            }
+        }
     }
 
 }
